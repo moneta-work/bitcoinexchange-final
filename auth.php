@@ -107,6 +107,7 @@ if(!$user_session) {
 
 		for($i=0;$i<$count_daemons;$i++)
 		{
+			$wallet_id = $my_coins->getWalletId($user_session,$Bitcoind[$i]["cid"]);
 			$Bitcoind_List_Transactions = $Bitcoind[$i]["daemon"]->listtransactions($wallet_id,50);
    
 			foreach($Bitcoind_List_Transactions as $Bitcoind_List_Transaction) {
@@ -137,6 +138,7 @@ if(!$user_session) {
 				}
 			}
 			
+			$wallet_id = $my_coins->getWalletId($user_session,$Bitcrystald[$i]["cid"]);
 			$Bitcrystald_List_Transactions = $Bitcrystald[$i]["daemon"]->listtransactions($wallet_id,50);
    
 			foreach($Bitcrystald_List_Transactions as $Bitcrystald_List_Transaction) {
@@ -167,6 +169,7 @@ if(!$user_session) {
 				}
 			}
 			
+			$wallet_id = $my_coins->getWalletId($user_session,$Bitcrystalxd[$i]["cid"]);
 			$Bitcrystalxd_List_Transactions = $Bitcrystalxd[$i]["daemon"]->listtransactions($wallet_id,50);
    
 			foreach($Bitcrystalxd_List_Transactions as $Bitcrystalxd_List_Transaction) {
